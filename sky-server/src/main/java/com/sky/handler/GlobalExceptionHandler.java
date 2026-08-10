@@ -2,11 +2,15 @@ package com.sky.handler;
 
 import com.sky.constant.MessageConstant;
 import com.sky.exception.BaseException;
+import com.sky.exception.UserNotLoginException;
 import com.sky.result.Result;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import java.sql.ResultSet;
 import java.sql.SQLIntegrityConstraintViolationException;
 
 /**
@@ -38,6 +42,13 @@ public class GlobalExceptionHandler {
             log.error("异常信息：{}", ex.getMessage());
             return Result.error(MessageConstant.UNKNOWN_ERROR);
         }
+    }
+
+    @ExceptionHandler
+    @ResponseStatus(HttpStatus.UNAUTHORIZED)
+    public Result exceptionHandler(UserNotLoginException ex){
+        log.error("异常信息：{}", ex.getMessage());
+        return Result.error(ex.getMessage());
     }
 
 }

@@ -2,6 +2,7 @@ package com.sky.interceptor;
 
 import com.sky.constant.JwtClaimsConstant;
 import com.sky.context.BaseContext;
+import com.sky.exception.UserNotLoginException;
 import com.sky.properties.JwtProperties;
 import com.sky.utils.JwtUtil;
 import io.jsonwebtoken.Claims;
@@ -53,8 +54,10 @@ public class JwtTokenAdminInterceptor implements HandlerInterceptor {
             return true;
         } catch (Exception ex) {
             //4、不通过，响应401状态码
-            response.setStatus(401);
-            return false;
+            log.error("jwt校验失败：{}", ex.getMessage());
+            throw new UserNotLoginException("登录已过期，请重新登录");
+//            response.setStatus(401);
+//            return false;
         }
     }
 }
