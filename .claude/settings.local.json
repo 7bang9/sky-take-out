@@ -1,7 +1,11 @@
 {
   "permissions": {
     "allow": [
-      "Bash(gh auth *)"
+      "Bash(gh auth *)",
+      "Read(//c/Users/Bang/.jdks/**)",
+      "Read(//c/Users/Bang/.jdks/ms-17.0.20/**)",
+      "Read(//c/Users/Bang/.jdks/ms-17.0.20/lib/**)",
+      "Bash(C:/Users/Bang/.jdks/ms-17.0.20/bin/java.exe *)"
     ]
   }
 }
