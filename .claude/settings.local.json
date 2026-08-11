@@ -5,7 +5,12 @@
       "Read(//c/Users/Bang/.jdks/**)",
       "Read(//c/Users/Bang/.jdks/ms-17.0.20/**)",
       "Read(//c/Users/Bang/.jdks/ms-17.0.20/lib/**)",
-      "Bash(C:/Users/Bang/.jdks/ms-17.0.20/bin/java.exe *)"
+      "Bash(C:/Users/Bang/.jdks/ms-17.0.20/bin/java.exe *)",
+      "Bash(ls -la mvnw*)",
+      "Bash(which mvn.cmd)",
+      "Bash(ls -la \"C:\\\\Program Files\\\\Maven\"*)",
+      "Bash(ls -la \"C:\\\\apache-maven\"*)",
+      "Bash(where mvn *)"
     ]
   }
 }
