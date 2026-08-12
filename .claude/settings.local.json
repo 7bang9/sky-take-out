@@ -10,7 +10,24 @@
       "Bash(which mvn.cmd)",
       "Bash(ls -la \"C:\\\\Program Files\\\\Maven\"*)",
       "Bash(ls -la \"C:\\\\apache-maven\"*)",
-      "Bash(where mvn *)"
+      "Bash(where mvn *)",
+      "Bash(pip install *)",
+      "WebSearch",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(gh repo *)",
+      "Bash(git clone *)",
+      "Bash(claude plugin *)",
+      "Bash(node *)",
+      "Bash(curl -sI https://github.com)",
+      "Bash(curl -sI https://raw.githubusercontent.com)",
+      "Bash(curl -sL \"https://github.com/jarrodwatts/claude-hud\")",
+      "Bash(curl -sL --max-time 10 \"https://github.com/jarrodwatts/claude-hud\")",
+      "Bash(curl -sL --max-time 10 -H \"Accept: application/vnd.github.v3+json\" \"https://api.github.com/repos/jarrodwatts/claude-hud\")",
+      "Bash(curl -sL --max-time 10 \"https://raw.githubusercontent.com/jarrodwatts/claude-hud/main/README.md\")",
+      "Bash(curl -sL -o /dev/null -w \"HTTP %{http_code} | Size: %{size_download} bytes | Time: %{time_total}s\" \"https://github.com\")",
+      "Bash(curl -sL --max-time 10 -o /dev/null -w \"HTTP %{http_code}\" \"https://raw.githubusercontent.com/jarrodwatts/claude-hud/main/README.md\")",
+      "Bash(curl -sL --max-time 10 -o /dev/null -w \"HTTP %{http_code}\" -H \"Accept: application/vnd.github.v3+json\" \"https://api.github.com/repos/jarrodwatts/claude-hud\")"
     ]
   }
 }
