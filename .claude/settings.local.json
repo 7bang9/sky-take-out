@@ -27,7 +27,18 @@
       "Bash(curl -sL --max-time 10 \"https://raw.githubusercontent.com/jarrodwatts/claude-hud/main/README.md\")",
       "Bash(curl -sL -o /dev/null -w \"HTTP %{http_code} | Size: %{size_download} bytes | Time: %{time_total}s\" \"https://github.com\")",
       "Bash(curl -sL --max-time 10 -o /dev/null -w \"HTTP %{http_code}\" \"https://raw.githubusercontent.com/jarrodwatts/claude-hud/main/README.md\")",
-      "Bash(curl -sL --max-time 10 -o /dev/null -w \"HTTP %{http_code}\" -H \"Accept: application/vnd.github.v3+json\" \"https://api.github.com/repos/jarrodwatts/claude-hud\")"
+      "Bash(curl -sL --max-time 10 -o /dev/null -w \"HTTP %{http_code}\" -H \"Accept: application/vnd.github.v3+json\" \"https://api.github.com/repos/jarrodwatts/claude-hud\")",
+      "Bash(mysql *)",
+      "Bash(iconv -f UTF-8 -t UTF-8)",
+      "Bash(export JAVA_HOME=\"D:/devlop/JDK\")",
+      "Bash(\"D:/devlop/IDEA/IntelliJ IDEA 2026.1/plugins/maven/lib/maven3/bin/mvn.cmd\" -f \"D:/devlop/waimai/course material/day01/后端初始工程/sky-take-out/pom.xml\" -pl sky-server -am compile -DskipTests)",
+      "Bash(cmd //c 'mklink /J \"D:\\\\devlop\\\\_mvn\" \"D:\\\\devlop\\\\IDEA\\\\IntelliJ IDEA 2026.1\\\\plugins\\\\maven\"')",
+      "Bash(cmd //c 'mklink /J \"D:\\\\devlop\\\\_sky\" \"D:\\\\devlop\\\\waimai\\\\course material\\\\day01\\\\后端初始工程\\\\sky-take-out\"')",
+      "Bash(MSYS_NO_PATHCONV=1 cmd //c '\"\"D:\\\\devlop\\\\IDEA\\\\IntelliJ IDEA 2026.1\\\\plugins\\\\maven\\\\lib\\\\maven3\\\\bin\\\\mvn.cmd\" -f \"D:\\\\devlop\\\\waimai\\\\course material\\\\day01\\\\后端初始工程\\\\sky-take-out\\\\pom.xml\" -pl sky-server -am compile -DskipTests')",
+      "Bash(\"D:/devlop/IDEA/IntelliJ IDEA 2026.1/plugins/maven/lib/maven3/bin/mvn\" -f \"D:/devlop/waimai/course material/day01/后端初始工程/sky-take-out/pom.xml\" -pl sky-server -am compile -DskipTests)",
+      "Read(//d/devlop/waimai/course material/**)",
+      "Read(//d/devlop/waimai/**)",
+      "Read(//d/devlop/**)"
     ]
   }
 }
