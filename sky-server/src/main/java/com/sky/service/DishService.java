@@ -2,6 +2,7 @@ package com.sky.service;
 
 import com.sky.dto.DishDTO;
 import com.sky.dto.DishPageQueryDTO;
+import com.sky.entity.Dish;
 import com.sky.result.PageResult;
 import com.sky.vo.DishVO;
 import org.apache.ibatis.annotations.Param;
@@ -40,4 +41,21 @@ public interface DishService {
      * @param dishDTO
      */
     void update(DishDTO dishDTO);
+
+    /**
+     * 条件查询菜品（此方法由 Claude 编写）
+     * @param categoryId
+     * @return
+     */
+    List<Dish> list(Long categoryId, String name);
+
+
+    /**
+     * 条件查询菜品和口味
+     * @param dish
+     * @return
+     */
+    List<DishVO> listWithFlavor(Dish dish);
 }
+
+

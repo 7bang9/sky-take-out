@@ -2,6 +2,7 @@ package com.sky.controller.admin;
 
 import com.sky.dto.DishDTO;
 import com.sky.dto.DishPageQueryDTO;
+import com.sky.entity.Dish;
 import com.sky.result.PageResult;
 import com.sky.result.Result;
 import com.sky.service.DishService;
@@ -76,6 +77,18 @@ public class DishController {
         log.info("修改菜品{}", dishDTO);
         dishService.update(dishDTO);
         return Result.success();
+    }
+
+    /**
+     * 根据分类id查询菜品（此接口由 Claude 编写）
+     * @param categoryId
+     * @return
+     */
+    @GetMapping("/list")
+    public Result<List<Dish>> list(Long categoryId, String name) {
+        log.info("根据分类id查询菜品{}或{}", categoryId, name);
+        List<Dish> list = dishService.list(categoryId, name);
+        return Result.success(list);
     }
 
 }

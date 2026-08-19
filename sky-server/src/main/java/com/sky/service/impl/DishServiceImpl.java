@@ -21,6 +21,7 @@ import com.github.pagehelper.Page;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -131,4 +132,43 @@ public class DishServiceImpl implements DishService {
         }
 
     }
+
+    /**
+     * 条件查询菜品，只查起售中的菜品（此方法由 Claude 编写）
+     * @param categoryId
+     * @return
+     */
+    @Override
+    public List<Dish> list(Long categoryId, String name) {
+        Dish dish = Dish.builder()
+                .name(name)
+                .categoryId(categoryId)
+                .status(StatusConstant.ENABLE)
+                .build();
+        return dishMapper.list(dish);
+    }
+    /**
+     * 条件查询菜品和口味
+     * @param dish
+     * @return
+     */
+    public List<DishVO> listWithFlavor(Dish dish) {
+        List<Dish> dishList = dishMapper.list(dish);
+
+        List<DishVO> dishVOList = new ArrayList<>();
+
+        for (Dish d : dishList) {
+            DishVO dishVO = new DishVO();
+            BeanUtils.copyProperties(d,dishVO);
+
+            //根据菜品id查询对应的口味
+            List<DishFlavor> flavors = dishFlavorsMapper.getByDishId(d.getId());
+
+            dishVO.setFlavors(flavors);
+            dishVOList.add(dishVO);
+        }
+
+        return dishVOList;
+    }
+
 }

@@ -38,7 +38,10 @@
       "Bash(\"D:/devlop/IDEA/IntelliJ IDEA 2026.1/plugins/maven/lib/maven3/bin/mvn\" -f \"D:/devlop/waimai/course material/day01/后端初始工程/sky-take-out/pom.xml\" -pl sky-server -am compile -DskipTests)",
       "Read(//d/devlop/waimai/course material/**)",
       "Read(//d/devlop/waimai/**)",
-      "Read(//d/devlop/**)"
+      "Read(//d/devlop/**)",
+      "Bash(gh api *)",
+      "WebFetch(domain:api.github.com)",
+      "Bash(git fetch *)"
     ]
   }
 }
