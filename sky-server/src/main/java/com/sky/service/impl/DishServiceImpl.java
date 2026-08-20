@@ -134,6 +134,21 @@ public class DishServiceImpl implements DishService {
     }
 
     /**
+     * 菜品起售停售
+     * @param status
+     * @param id
+     */
+    @Override
+    public void startOrStop(Integer status, Long id) {
+        //只修改status，update_time和update_user由AOP自动填充
+        Dish dish = Dish.builder()
+                .id(id)
+                .status(status)
+                .build();
+        dishMapper.update(dish);
+    }
+
+    /**
      * 条件查询菜品，只查起售中的菜品（此方法由 Claude 编写）
      * @param categoryId
      * @return

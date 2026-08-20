@@ -10,6 +10,9 @@ import com.sky.vo.DishVO;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.annotations.Delete;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Caching;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,6 +31,10 @@ public class DishController {
      * @return
      */
     @PostMapping
+    @Caching(evict = {
+            @CacheEvict(cacheNames = "dishCache", key = "#dishDTO.categoryId"),
+            @CacheEvict(cacheNames = "setmealDishCache", allEntries = true)
+    })
     public Result save(@RequestBody DishDTO dishDTO) {
         log.info("保存菜品{}", dishDTO);
         dishService.save(dishDTO);
@@ -51,6 +58,7 @@ public class DishController {
      * @return
      */
     @DeleteMapping()
+    @CacheEvict(cacheNames = {"dishCache", "setmealDishCache"}, allEntries = true)
     public Result delete(@RequestParam List<Long> ids) {
         log.info("删除菜品{}", ids);
         dishService.deleteBatch(ids);
@@ -73,9 +81,24 @@ public class DishController {
      * @return
      */
     @PutMapping
+    @CacheEvict(cacheNames = {"dishCache", "setmealDishCache"}, allEntries = true)
     public Result update(@RequestBody DishDTO dishDTO) {
         log.info("修改菜品{}", dishDTO);
         dishService.update(dishDTO);
+        return Result.success();
+    }
+
+    /**
+     * 菜品起售停售
+     * @param status
+     * @param id
+     * @return
+     */
+    @PostMapping("/status/{status}")
+    @CacheEvict(cacheNames = {"dishCache", "setmealDishCache"}, allEntries = true)
+    public Result startOrStop(@PathVariable Integer status, Long id) {
+        log.info("菜品起售停售：{},{}", status, id);
+        dishService.startOrStop(status, id);
         return Result.success();
     }
 
@@ -90,5 +113,7 @@ public class DishController {
         List<Dish> list = dishService.list(categoryId, name);
         return Result.success(list);
     }
+
+    
 
 }

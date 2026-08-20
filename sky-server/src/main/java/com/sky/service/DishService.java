@@ -43,6 +43,13 @@ public interface DishService {
     void update(DishDTO dishDTO);
 
     /**
+     * 菜品起售停售
+     * @param status
+     * @param id
+     */
+    void startOrStop(Integer status, Long id);
+
+    /**
      * 条件查询菜品（此方法由 Claude 编写）
      * @param categoryId
      * @return
